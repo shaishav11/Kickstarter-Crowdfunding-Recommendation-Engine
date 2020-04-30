@@ -6,9 +6,9 @@ The aim of this project was to predict the success or failure of a Kickstarter c
   1. Pre-processing of the data set from Kickstarter 
   2. Exploratory Data Ananlysis (EDA)
   3. Machine Learning Algorithms used:
-    1. Random Forest
-    2. Logistic Regression
-    3. k-Nearest Neighbour (KNN)
+    <br>1. Random Forest
+    <br>2. Logistic Regression
+    <br>3. k-Nearest Neighbour (KNN)
 
 Conclusion:
 With an accuracy of 81%, I was able to predicted the status of the project using Random Forest. I also provided recommendation engine to projects classified as “failed” to increase their chances of being classified as “successful”. This analysis can give prediction regarding success or failure of a particular crowdfunding of a project. By changing parameters of the crowdfunding, the possibility of success can be increased. Update, goal, duration and city were the most important features for the classification models. Maximum Successful projects were carried out in category dance, theater and music. Projects having a average goal between $5000 to $10000 have high chances of becoming successful. Projects providing regular updates have better chances of becoming successful. Successful projects are generally completed in around 38 days.
