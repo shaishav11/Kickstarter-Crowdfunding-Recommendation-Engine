@@ -2,7 +2,7 @@
 
 Kickstarter is a funding platform for creative projects. Everything from film, games, and music to art, design, and technology. Kickstarter is full of ambitious, innovative, and imaginative projects that are brought to life through the direct support of others. 
 
-The aim of this project is to predict the success or failure of a Kickstarter campaign at launch time. The aim of this project was to predict the success or failure of a Kickstarter campaign at launch time. Following steps were performed:
+The aim of this project was to predict the success or failure of a Kickstarter campaign at launch time. Following steps were performed:
   1. Pre-processing of the data set from Kickstarter 
   2. Exploratory Data Ananlysis (EDA)
   3. Machine Learning Algorithms used:
