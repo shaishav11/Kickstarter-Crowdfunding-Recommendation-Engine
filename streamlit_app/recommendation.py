@@ -17,55 +17,55 @@ def main_data(df):
 def project_recommendation(data):
 
 	df_main = main_data(original)
-
-	# print(df)
-	# print(df_main)
-
-	# print(df_main.head())
-	# strings = [str(integer) for integer in data['category']]
-	# cat = "".join(strings)
-	# print(cat)
-	# print(df_main.category)
-	# print(dtype(data['category']))
-
-	df = df_main[(df_main['category'] == data['category']) & (df_main['subcategory'] == data['subcategory']) & (df_main['state'] == data['state']) & (df_main['state'] == data['state'])]
 	
-	## Total Number of projects:
-	project = df.status.value_counts()
-	# print('Total Successful project:',project[0])
-	# print('Total Failed project (%):',project[1])
 
-	## Total goals for Projects:
-	goal = df.groupby('status').goal.sum()
-	# print('Successful project goal:',round(goal[1],2))
-	# print('Failed project goal:',round(goal[0],2))
+	try:
+		df = df_main[(df_main['category'] == data['category']) & (df_main['subcategory'] == data['subcategory']) & (df_main['state'] == data['state']) & (df_main['state'] == data['state'])]
+		counter = 0 
+		## Total Number of projects:
+		project = df.status.value_counts()
 
-	## Average for project goal:
-	suc_goal_avg = goal[1]/project[0]
-	fail_goal_avg = goal[0]/project[1]
-	# print('Successful project goal average:',round(suc_goal_avg,2))
-	# print('Failed project goal average:',round(fail_goal_avg,2))
+		## Average goal for sucessfull project:
+		goal = df.groupby('status').goal.sum()
+		suc_goal_avg = goal[1]/project[0]
 
-	update = pledge = df.groupby('status').updates.sum()
-	suc_update_avg = update[1]/project[0]
-	fail_update_avg = update[0]/project[1]
-	# print('Successful project update average:',round(suc_update_avg,2))
-	# print('Failed project update average:',round(fail_update_avg,2))
+		## Average updates for sucessfull project:
+		update = pledge = df.groupby('status').updates.sum()
+		suc_update_avg = update[1]/project[0]
 
-	duration = df.groupby('status').duration.sum()
-	suc_dur_avg = duration[1]/project[0]
-	fail_dur_avg = duration[0]/project[1]
-	# print('Successful project duration average:',round(suc_dur_avg,2))
-	# print('Failed project duration average:',round(fail_dur_avg,2))
+		## Average duration for sucessfull project:
+		duration = df.groupby('status').duration.sum()
+		suc_dur_avg = duration[1]/project[0]
 
-	## Average for project reward levels:
-	levels = df.groupby('status').levels.sum()
-	suc_lev_avg = levels[1]/project[0]
-	fail_lev_avg = levels[0]/project[1]
-	# print('Successful project level average:',round(suc_lev_avg,2))
-	# print('Failed project level average:',round(fail_lev_avg,2))
+		## Average levels for sucessfull project:
+		levels = df.groupby('status').levels.sum()
+		suc_lev_avg = levels[1]/project[0]
 
-	return project[0], project[1], round(suc_goal_avg,2), round(suc_update_avg,2), round(suc_dur_avg,2), round(suc_lev_avg,2)
+	except:
+		df = df_main[(df_main['category'] == data['category']) & (df_main['subcategory'] == data['subcategory'])]
+		counter = 1
+		## Total Number of projects:
+		project = df.status.value_counts()
+
+		## Average goal for sucessfull project:
+		goal = df.groupby('status').goal.sum()
+		suc_goal_avg = goal[1]/project[0]
+
+		## Average updates for sucessfull project:
+		update = pledge = df.groupby('status').updates.sum()
+		suc_update_avg = update[1]/project[0]
+
+		## Average duration for sucessfull project:
+		duration = df.groupby('status').duration.sum()
+		suc_dur_avg = duration[1]/project[0]
+
+		## Average levels for sucessfull project:
+		levels = df.groupby('status').levels.sum()
+		suc_lev_avg = levels[1]/project[0]
+
+		return project[0], project[1], round(suc_goal_avg,2), round(suc_update_avg,2), round(suc_dur_avg,2), round(suc_lev_avg,2), counter
+
+	return project[0], project[1], round(suc_goal_avg,2), round(suc_update_avg,2), round(suc_dur_avg,2), round(suc_lev_avg,2), counter
 
 
 
