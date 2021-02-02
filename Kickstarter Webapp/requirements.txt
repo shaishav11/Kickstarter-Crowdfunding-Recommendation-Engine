@@ -5,7 +5,7 @@ async-generator==1.10
 attrs==20.3.0
 backcall==0.2.0
 backrefs==4.5
-bleach==3.2.1
+bleach==3.3.0
 bracex==2.0.1
 cffi==1.14.4
 click==7.1.2
